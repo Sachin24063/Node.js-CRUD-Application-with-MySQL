@@ -43,12 +43,12 @@ git clone https://github.com/your-username/node-mysql-crud.git
 cd node-mysql-crud
 ```
 
-2. **Install the dependencies.
+2. Install the dependencies.
 
 ```bash
 npm install
 ```
-3. **Create the .env file in the root directory with your MySQL database credentials.
+3. Create the .env file in the root directory with your MySQL database credentials.
 
 ```bash
 DB_HOST=localhost
@@ -56,7 +56,7 @@ DB_USER=root
 DB_PASSWORD=your_password
 DB_NAME=crud_app
 ```
-4. **Set up the MySQL database.
+4. Set up the MySQL database.
    
 Log in to your MySQL shell:
 ```bash
@@ -75,12 +75,12 @@ CREATE TABLE users (
   email VARCHAR(255) NOT NULL
 );
 ```
-5. **Start the Node.js server.
+5. Start the Node.js server.
 
 ```bash
 node server.js
 ```
-6. **Access the application.
+6. Access the application.
    
 Open a web browser and navigate to:
 ```bash
