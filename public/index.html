@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Example</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>User Management</h1>
+    <div id="user-list"></div>
+    <button onclick="addUser()">Add User</button>
+    
+    <script>
+        async function getUsers() {
+            const response = await fetch('/api/users');
+            const users = await response.json();
+            const userList = document.getElementById('user-list');
+            userList.innerHTML = '';
+            users.forEach(user => {
+                userList.innerHTML += `
+                    <div>
+                        ${user.name} - ${user.email}
+                        <button onclick="editUser(${user.id}, '${user.name}', '${user.email}')">Update</button>
+                        <button onclick="deleteUser(${user.id})">Delete</button>
+                    </div>`;
+            });
+        }
+
+        async function addUser() {
+            const name = prompt("Enter name:");
+            const email = prompt("Enter email:");
+            const response = await fetch('/api/users', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email })
+            });
+            if (response.ok) {
+                getUsers();
+            }
+        }
+
+        async function deleteUser(id) {
+            const response = await fetch(`/api/users/${id}`, { method: 'DELETE' });
+            if (response.ok) {
+                getUsers();
+            }
+        }
+
+        async function editUser(id, currentName, currentEmail) {
+            const newName = prompt("Enter new name:", currentName);
+            const newEmail = prompt("Enter new email:", currentEmail);
+            
+            const response = await fetch(`/api/users/${id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name: newName, email: newEmail })
+            });
+            if (response.ok) {
+                getUsers();
+            }
+        }
+
+        getUsers();
+    </script>
+</body>
+</html>
