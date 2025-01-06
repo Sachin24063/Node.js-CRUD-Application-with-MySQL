@@ -42,6 +42,7 @@ Before running the project, ensure you have the following installed:
 git clone https://github.com/your-username/node-mysql-crud.git
 cd node-mysql-crud
 ```
+
 2. **Install the dependencies.
 
 ```bash
@@ -56,7 +57,7 @@ DB_PASSWORD=your_password
 DB_NAME=crud_app
 ```
 4. **Set up the MySQL database.
-5. 
+   
 Log in to your MySQL shell:
 ```bash
 mysql -u root -p
@@ -80,8 +81,36 @@ CREATE TABLE users (
 node server.js
 ```
 6. **Access the application.
-7. 
+   
 Open a web browser and navigate to:
 ```bash
 http://localhost:3000
+```
+
+## Folder Structure
+
+Here's an overview of the project structure:
+
+```bash
+node-mysql-crud/
+│
+├── controllers/
+│   └── userController.js      # Controller for handling user CRUD operations
+│
+├── models/
+│   └── userModel.js           # Database interactions for user data
+│
+├── public/
+│   ├── index.html             # Main HTML file for UI
+│   └── style.css              # Stylesheet for the UI
+│
+├── routes/
+│   └── userRoutes.js          # Routes for user CRUD operations
+│
+├── config/
+│   └── db.js                  # Database connection configuration
+│
+├── .env                       # MySQL configuration
+├── server.js                  # Entry point for the server
+
 ```
