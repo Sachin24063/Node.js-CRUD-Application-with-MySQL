@@ -39,8 +39,8 @@ Before running the project, ensure you have the following installed:
 1. **Clone the repository** to your local machine.
 
 ```bash
-git clone https://github.com/your-username/node-mysql-crud.git
-cd node-mysql-crud
+git clone https://github.com/Sachin24063/Node.js-CRUD-Application-with-MySQL.git
+cd Node.js-CRUD-Application-with-MySQL
 ```
 
 2. Install the dependencies.
